@@ -1,0 +1,44 @@
+.container{
+  height: 100vh;
+  width: 100%;
+  /* background-color: #fff; */
+}
+.login{
+  padding: 30rpx;
+}
+.login input{
+  border: 1rpx solid #666;
+  border-radius:40rpx;
+  -webkit-border-radius:40rpx;
+  -moz-border-radius:40rpx;
+  -ms-border-radius:40rpx;
+  -o-border-radius:40rpx;
+  height: 90rpx;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  width: 85%;
+  margin:0rpx auto 40rpx;
+  outline-color: transparent;
+  outline: none;
+  background-color: #fff;
+  border: 1rpx solid #ccc;
+}
+.login .checkBox-item{
+  display: flex;  
+  padding-left: 55rpx;
+  align-items: center;
+  margin:30rpx 0 100rpx;
+}
+
+.login .login-btn{
+  background-color: #003366;
+  color: #fff;
+  border-radius:40rpx;
+  -webkit-border-radius:40rpx;
+  -moz-border-radius:40rpx;
+  -ms-border-radius:40rpx;
+  -o-border-radius:40rpx;
+  width: 85%;
+  font-size: 26rpx;
+  padding: 8rpx 0;
+}

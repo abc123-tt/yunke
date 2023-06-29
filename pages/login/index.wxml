@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="login">
+    <image src="../../assets/imgs/yunke.png" mode="aspectFill" class="logo"/>
+    <input type="text" class="user-input" placeholder="请输入学号" model:value="{{stuId}}"/>
+    <input type="password" class="pass-input" placeholder="请输入密码" model:value="{{password}}"/>
+    <view class="checkBox-item">
+      <checkbox checked="{{accountStatus}}" class="theme"/>
+      <view class="margin-left-sm" bindtap="switchStatus">记住账号密码（仅本地存储）</view>
+    </view>
+    <button class="login-btn" bindtap="login">登录</button>
+  </view>
+</view>
