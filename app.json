@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/score/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,5 +12,4 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
-  
 }

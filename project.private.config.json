@@ -14,6 +14,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "查成绩",
+          "pathName": "pages/score/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
