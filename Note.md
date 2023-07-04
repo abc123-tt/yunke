@@ -151,3 +151,102 @@ export default function createRequest(options){
 
 # 4. 微信小程序配置环境变量
 
+
+
+
+
+# 5. 查询成绩功能
+
+### 5.1 请求成绩
+
+> 当用户首次进来时会判断本地是否存储了之前查询过的成绩结果，如果有就读取显示，如果没有就发送请求，点击刷新按钮可以重新发送请求刷新成绩。
+
+```javascript
+// 需要在页面加载时调用该函数
+onLoad(options) {
+   this.getScore()
+},
+getScore(){
+    const cache = wx.getStorageSync(this.data.type == 1 ? 'scoreCacheKey' : 'rawScoreCacheKey')
+    if(cache){
+        this.setData({
+            scoreList:cache
+        })
+        return
+    }
+    // 没有缓存就发送请求
+    this.updataScore()
+},
+```
+
+
+
+> 由于成绩分为有效成绩和原始成绩，所以需要两个请求函数，根据type的不同分别存储两个成绩的数据
+
+在微信小程序中，wx.request({})方法调用成功或者失败之后，当使用this.setData修改初始化数据data时，如果使用this.data来获取，会出现获取不到的情况，调试页面也会报undefiend，在wx.request({})方法的回调函数中，对象已经发生改变，this已经不是wx.request({})方法对象了，data属性也不存在了，从而无法实现对data数据的修改。
+
+```javascript
+updateScore(){
+    const that = this
+    // 通过将函数赋值给一个变量来操作两个不同的方法
+    let t = null
+    if(that.data.type == 1){
+      t = getScoreListRequest()
+    }else{
+      t = getRawScoreListRequest()
+    }
+    t.then((res)=>{
+      that.setData({
+        scoreList:res.data
+      })
+      // 获取到数据后存放到本地
+      wx.setStorageSync(that.data.type == 1 ? 'scoreCacheKey' : 'rawScoreCacheKey', res.data)
+    })
+}
+```
+
+
+
+### 5.2 切换成绩类型
+
+> 通过data-type属性绑定两个成绩类型，因为微信小程序中不能直接使用函数传参，就是用data-来绑定一个属性进行传参。通过e.target.dataset可以拿到元素data-中的属性以及对应的值。
+
+```javascript
+changeScoreType(e){
+    const type = e.currentTarget.dataset.type
+    this.setData(
+        {
+           type
+        }
+    )
+    this.getScore()
+},
+```
+
+
+
+### 5.3 切换学期
+
+> 使用小程序自带的picker标签
+>
+> range：某个学期下的成绩列表
+>
+> range-key ：学期的唯一键，可直接放学期名
+>
+> value：索引值，0代表有效成绩，1代表原始成绩
+>
+> bindchange：绑定的函数
+
+使用e.detail.value获取picker的value属性
+
+```javascript
+// 切换学期的成绩
+changeTerm(e){
+    // 获取picker中选项的索引值
+    const termIndex = e.detail.value
+    this.setData({
+        termIndex
+    })
+}
+```
+

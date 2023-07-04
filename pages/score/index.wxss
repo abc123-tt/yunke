@@ -1,1 +1,103 @@
-/* pages/score/index.wxss */
+page{
+  background: linear-gradient(0deg,rgba(160, 245, 231, 0.2) 0%,rgba(143, 250, 175, 0.2) 100%);
+}
+.container{
+  padding: 18rpx;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22rpx;
+}
+.header > view{
+  width: calc((100% - 25rpx) / 2);
+  background-color: #fff;
+  padding: 20rpx 6rpx;
+  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+  -moz-border-radius: 20rpx;
+  -ms-border-radius: 20rpx;
+  -o-border-radius: 20rpx;
+  text-align: center;
+}
+.header .score-type{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header .score-type > view{
+  background-color: #eee;
+  padding:20rpx;
+  border-radius: 15rpx;
+  -webkit-border-radius: 15rpx;
+  -moz-border-radius: 15rpx;
+  -ms-border-radius: 15rpx;
+  -o-border-radius: 15rpx;
+}
+.score-type > view.active{
+  background-color: skyblue;
+  color: #eeeeee;
+}
+.header .score-term{
+  padding: 38rpx 0;
+  width: 200rpx;
+  font-size: 24rpx;
+}
+.header .update-btn{
+  padding: 34rpx 0;
+  font-size: 36rpx;
+  width: 100rpx;
+  color: rgb(21, 168, 226);
+}
+.main{
+  margin-top: 40rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+  -moz-border-radius: 20rpx;
+  -ms-border-radius: 20rpx;
+  -o-border-radius: 20rpx;
+  padding: 40rpx 20rpx 20rpx;
+}
+.main .tit{
+  margin-bottom: 60rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+.score-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10rpx 20rpx;
+}
+.score-item .leftPart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.leftPart .raw-score_content{
+  font-weight: 400;
+  font-size: 24rpx;
+  color: #999999;
+}
+.score-item:not(:last-child){
+  border-bottom:1rpx solid rgba(232, 224, 235, .5)
+}
+.course-name{
+  color: #333333;
+  font-size: 32rpx;
+  width: 450rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.course-score{
+  color: rgb(21, 168, 226);
+  font-size: 32rpx;
+}
+.course-score.fail{
+  color: #9c9c9c;
+  font-size: 32rpx;
+}
+
