@@ -1,0 +1,10 @@
+function indexOf(arr, val) {
+  if(arr.indexOf(val) > - 1){
+    return true
+  }
+  return false
+}
+// node的模块导出
+module.exports = {
+  indexOf:indexOf
+}

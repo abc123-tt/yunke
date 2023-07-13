@@ -1,23 +1,26 @@
-<!--index.wxml-->
+<cu-custom bgColor="bg-white">
+  <view slot="content"> </view>
+</cu-custom>
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="logo">
+    <image src="/assets/imgs/logo.png" mode="aspectFill"/>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="nav-list">
+    <view class="nav-item" bindtap="nav" wx:for="{{navList}}" wx:key data-index="{{index}}">
+      <image src="{{item.icon}}" mode="aspectFill" class="nav-icon"/>
+      <view class="nav-title">{{item.title}}</view>
+    </view>
+  </view>
+  <view class="today-course">
+    <view class="course-option">
+      <view class="option-title">今日课表</view>
+      <view class="option-time">15周 周一</view>
+    </view>
+    <view class="course-box">
+      <view class="empty-status">
+        <image class="empty-img" src="../../assets/imgs/empty.png" mode="aspectFill"/>
+        <view class="tip">今天没有课程哦，快去充实一下自己吧！</view>
+      </view>
+    </view>
   </view>
 </view>

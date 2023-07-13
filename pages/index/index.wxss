@@ -1,19 +1,81 @@
-/**index.wxss**/
-.userinfo {
+page{
+  background-color: #fff;
+}
+.container{
+  padding:0 20rpx 48rpx;
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  width: 200rpx;
+  margin: 0 auto;
+}
+.logo image{
+  height: 100%;
+  width: 100%;
+}
+.container .nav-list{
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 24rpx -4rpx rgba(0, 0, 0, .1);
+  padding: 10rpx 20rpx;
+  margin-top: 20rpx;
+  border-radius: 24rpx;
+  -webkit-border-radius: 24rpx;
+  -moz-border-radius: 24rpx;
+  -ms-border-radius: 24rpx;
+  -o-border-radius: 24rpx;
+}
+.nav-item{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #aaa;
+  padding: 20rpx;
+}
+.nav-icon{
+  width: 62rpx;
+  height: 62rpx;
+  margin-bottom: 10rpx;
+}
+.nav-title{
+  font-size: 24rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.today-course{
+  box-shadow: 0 0 24rpx -4rpx rgba(0, 0, 0, .1);
+  padding:30rpx 28rpx;
+  margin-top: 20rpx;
+  border-radius: 24rpx;
+  background-color: #fafbff;
+  -webkit-border-radius: 24rpx;
+  -moz-border-radius: 24rpx;
+  -ms-border-radius: 24rpx;
+  -o-border-radius: 24rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.today-course .course-option{
+  display: flex;
+  justify-content: space-between;
+}
+.course-option .option-title{
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #003366;
+}
+.empty-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty-status .empty-img{
+  width: 300rpx;
+  height: 250rpx;
+  margin: 50rpx 0 30rpx;
+}
+.tip{
+  color: #999;
+  margin-bottom: 20rpx;
 }

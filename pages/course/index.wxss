@@ -1,0 +1,129 @@
+page{
+  background-color: #fff;
+}
+.refresh-btn {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.week-list {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 92rpx;
+  background-color: #f5f7f8;
+}
+
+.now-month {
+  width: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666;
+}
+.week-item{
+  width: calc((100% - 50rpx) / 7);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.week-name{
+  font-size: 24rpx;
+  color: #444;
+}
+.week-date{
+  font-size: 24rpx;
+  color: #a1a1a1;
+}
+
+.course-content{
+  width: 100%;
+  display: flex;
+  padding-top: 92rpx;
+}
+.course-nums{
+  width:50rpx;
+  background-color: #f5f7f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.nums-item{
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 24rpx;
+  justify-content: center;
+}
+.course-list{
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.course-item{
+  width: calc((100% - 50rpx) / 7);
+  font-size: 24rpx;
+  padding: 2rpx 4rpx;
+  position: absolute;
+}
+.course-item_content{
+  width: 100%;
+  height: 100%;
+  border-radius:8rpx;
+  -webkit-border-radius:8rpx;
+  -moz-border-radius:8rpx;
+  -ms-border-radius:8rpx;
+  -o-border-radius:8rpx;
+  font-size: 24rpx;
+  color: #FFF;
+  text-align: center;
+}
+
+.switch-week_popup{
+  padding: 30rpx 40rpx;
+}
+.switch-week_title{
+  font-size: 38rpx;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 30rpx;
+}
+.switch-week_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.switch-week_item{
+  width: 20%;
+  padding: 10rpx;
+}
+.switch-week_item-box{
+  height: 100rpx;
+  width: 100%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8rpx;
+  -webkit-border-radius: 8rpx;
+  -moz-border-radius: 8rpx;
+  -ms-border-radius: 8rpx;
+  -o-border-radius: 8rpx;
+}
+.active{
+  background-color: var(--theme);
+  color: #fff;
+}
+.course-swiper{
+  width: calc(100% - 50rpx);
+  height: 1200rpx;
+}

@@ -1,0 +1,5 @@
+<!--pages/mine/index.wxml-->
+<cu-custom bgColor="bg-white">
+  <view slot="content"> </view>
+</cu-custom>
+<text>pages/mine/index.wxml</text>

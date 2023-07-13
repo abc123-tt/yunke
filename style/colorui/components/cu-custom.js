@@ -23,6 +23,11 @@ Component({
       type: [Boolean, String],
       default: false
     },
+    // 自定义返回按钮
+    customBack: {
+      type: [Boolean, String],
+      default: false
+    },
     bgImage: {
       type: String,
       default: ''
@@ -41,6 +46,10 @@ Component({
    */
   methods: {
     BackPage() {
+      if(this.properties.customBack){
+        this.triggerEvent('back')
+        return
+      }
       wx.navigateBack({
         delta: 1
       });

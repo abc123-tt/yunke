@@ -21,6 +21,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "课表查询",
+          "pathName": "pages/course/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
