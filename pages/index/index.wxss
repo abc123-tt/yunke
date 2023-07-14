@@ -79,3 +79,30 @@ page{
   color: #999;
   margin-bottom: 20rpx;
 }
+.course-list{
+  margin-top:20rpx;
+}
+.course-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.course-item:not(:last-child){
+  border-bottom: 1rpx solid #eee;
+}
+.course-info{
+  padding: 10rpx 0;
+}
+.info-title{
+  width: 450rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.info-section{
+  margin-top: 10rpx;
+  color: #00cccc;
+}
+.course-address{
+  color: #333333;
+}

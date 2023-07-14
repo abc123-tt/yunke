@@ -1,4 +1,7 @@
 import {getCoursesListRequest} from '../../api/main'
+import {
+  getNowWeek
+} from '../../utils/util'
 // 缓存课表
 const courseCacheKey = 'courses'
 const courseColorCacheKey = 'courseColor'
@@ -112,10 +115,7 @@ Page({
   },
   // 这个方法的意思是根据当前时间来设置当前周数，来设置上方日期栏，否则默认第一周
   getNowWeek(){
-    const nowDate = new Date()
-    const startDate = new Date(this.data.startDate)
-    const time = nowDate - startDate
-    let nowWeek = Math.ceil(time / 1000 / 60 / 60 / 24 / 7)
+    const nowWeek = getNowWeek(this.data.startDate,this.data.totalWeek)
     if(nowWeek > 20){
       nowWeek = 20
     }
@@ -201,7 +201,13 @@ Page({
       todayDate
     })
   },
-
+// 课表详情
+navCourseDetail(e){
+const index = e.currentTarget.dataset.index
+wx.navigateTo({
+  url: `/pages/course-detail/index?info=${JSON.stringify(this.data.coursesList[index])}`,
+})
+}
 
 
 

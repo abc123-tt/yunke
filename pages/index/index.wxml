@@ -1,26 +1,41 @@
+<wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <cu-custom bgColor="bg-white">
   <view slot="content"> </view>
 </cu-custom>
 <view class="container">
   <view class="logo">
-    <image src="/assets/imgs/logo.png" mode="aspectFill"/>
+    <image src="/assets/imgs/logo.png" mode="aspectFill" />
   </view>
   <view class="nav-list">
     <view class="nav-item" bindtap="nav" wx:for="{{navList}}" wx:key data-index="{{index}}">
-      <image src="{{item.icon}}" mode="aspectFill" class="nav-icon"/>
+      <image src="{{item.icon}}" mode="aspectFill" class="nav-icon" />
       <view class="nav-title">{{item.title}}</view>
     </view>
   </view>
   <view class="today-course">
     <view class="course-option">
       <view class="option-title">今日课表</view>
-      <view class="option-time">15周 周一</view>
+      <view class="option-time">第{{nowWeek}}周 周{{tools.changeNum(todayWeek)}}</view>
     </view>
     <view class="course-box">
-      <view class="empty-status">
-        <image class="empty-img" src="../../assets/imgs/empty.png" mode="aspectFill"/>
-        <view class="tip">今天没有课程哦，快去充实一下自己吧！</view>
-      </view>
+      <!-- 只是站位，不会真正渲染出一个dom出来 -->
+      <block wx:if="{{todayCourseList.length == 0}}">
+        <view class="empty-status">
+          <image class="empty-img" src="../../assets/imgs/empty.png" mode="aspectFill" />
+          <view class="tip">今天没有课程哦，快去充实一下自己吧！</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="course-list">
+          <view class="course-item" wx:for="{{todayCourseList}}" wx:key="num">
+            <view class="course-info">
+              <view class="info-title">{{item.name}}</view>
+              <view class="info-section">{{item.rawSection}}</view>
+            </view>
+            <view class="course-address">{{item.address}}</view>
+          </view>
+        </view>
+      </block>
     </view>
   </view>
 </view>

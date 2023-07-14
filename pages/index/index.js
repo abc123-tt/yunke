@@ -1,7 +1,7 @@
 const app = getApp()
-// import {
-//   getNowWeek
-// } from '../../utils/util'
+import {
+  getNowWeek
+} from '../../utils/util'
 Page({
   data: {
     navList: [{
@@ -38,13 +38,35 @@ Page({
     const path = this.data.navList[index].path
     wx.navigateTo({
       url: path,
+      // 跳转失败
       fail() {
+        // 如果是tabbar页面就执行以下
         wx.switchTab({
           url: path,
         })
       }
     })
   },
-
-
+  getTodayCourseList(){
+    const todayWeek = new Date().getDay() // 获取今天是周几，0-6,0表示周日
+    // const todayWeek = 2
+    const nowWeek = getNowWeek(this.data.startDate,this.data.totalWeek)
+    // const nowWeek = 16
+    this.setData({
+      todayWeek,
+      nowWeek,
+    })
+    const courseList = wx.getStorageSync('courses')
+    if(!courseList) return
+    const todayCourseList = courseList.filter(item=>{
+      item.rawSection = item.rawSection.slice(2,5)
+      return item.week == todayWeek && item.weeks.indexOf(nowWeek) > -1
+    })
+    this.setData({
+      todayCourseList
+    })
+    todayCourseList.sort((a,b)=>{
+      return a.section - b.section
+    })
+  }
 })

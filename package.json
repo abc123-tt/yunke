@@ -1,5 +1,22 @@
 {
   "dependencies": {
-    "@vant/weapp": "^1.10.20"
-  }
+    "@vant/weapp": "^1.10.21"
+  },
+  "name": "cloudlesson",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abc123-tt/yunke.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abc123-tt/yunke/issues"
+  },
+  "homepage": "https://github.com/abc123-tt/yunke#readme",
+  "description": ""
 }

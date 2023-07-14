@@ -1,4 +1,3 @@
-<!--pages/course/index.wxml-->
 <wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <cu-custom bgColor="bg-white" customBack="{{true}}" bind:back="updateCourseList">
   <view slot="backText">
@@ -28,7 +27,7 @@
       <swiper circular duration="{{firstEntry ? 0 : 300}}"  bindchange="swiperSwitchWeek" class="course-swiper" current="{{nowWeek - 1}}">
         <swiper-item wx:for-index="weekIndex" wx:for="{{totalWeek}}" wx:key="index">
           <view class="course-list">
-            <view wx:if="{{tools.indexOf(item.weeks,weekIndex + 1)}}" class="course-item" wx:for="{{courseList}}" wx:key="{{key}}" style="height:{{item.sectionCount * 120}}rpx;top: {{(item.section - 1) * 120}}rpx;left: {{(item.week - 1) * ((windowWidth * 2 - 50) / 7)}}rpx;">
+            <view wx:if="{{tools.indexOf(item.weeks,weekIndex + 1)}}"  bindtap="navCourseDetail"  class="course-item" wx:for="{{courseList}}" wx:key="{{key}}" data-index="{{index}}" style="height:{{item.sectionCount * 120}}rpx;top: {{(item.section - 1) * 120}}rpx;left: {{(item.week - 1) * ((windowWidth * 2 - 50) / 7)}}rpx;">
               <view class="course-item_content" style="background-color:{{courseColor[item.name]}};">
                 {{item.name}}@{{item.address ? item.address : '未知'}}
               </view>
@@ -36,7 +35,6 @@
           </view>
         </swiper-item>
       </swiper>
-
     </view>
   </view>
   <van-popup show="{{ showSwitchWeek }}" position="bottom" bind:close="onClose" round>
